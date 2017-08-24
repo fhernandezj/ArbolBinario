@@ -6,6 +6,9 @@
 package arbilbinario;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  *
@@ -54,6 +57,41 @@ public class Tree {
             Postorder(root.LeftNode);            
             Postorder(root.RightNode);
             System.out.println(root.getKey());
+        }
+    }
+    
+    public void OrderLevel(Node root){
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            Node temp = queue.poll();
+            System.out.println(temp.key);
+            if(temp.LeftNode!=null){
+                queue.add(temp.LeftNode);
+            }
+            if(temp.RightNode!=null){
+                queue.add(temp.RightNode);
+            }
+        }
+    }
+    
+    public void OrderLevelInv(Node root){
+        Stack stack = new Stack();
+        Queue<Node> queue = new LinkedList<Node>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            Node temp = queue.poll();
+            stack.push(temp);
+            if(temp.RightNode!=null){
+                queue.add(temp.RightNode);
+            }
+            if(temp.LeftNode!=null){
+                queue.add(temp.LeftNode);
+            }
+        }
+        while(!stack.empty()){
+            Node temp = (Node) stack.pop();
+            System.out.println(temp.key);
         }
     }
 }

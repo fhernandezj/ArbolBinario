@@ -27,6 +27,10 @@ public class ArbilBinario {
         tree.Preorder(tree.nodes.get(0));
         System.out.println("Postorder");
         tree.Postorder(tree.nodes.get(0));
+        System.out.println("Order Level");
+        tree.OrderLevel(tree.nodes.get(0));
+        System.out.println("Inverted Order Level");
+        tree.OrderLevelInv(tree.nodes.get(0));
     }
     
     public static void createTree(){
